@@ -43,6 +43,18 @@ const getWinner = function (tray) {
   return lanes.indexOf('xxx') > -1 || lanes.indexOf('ooo') > -1
 }
 
+const didXWin = function (tray) {
+  const lanes = getLanes(tray)
+  return lanes.indexOf('xxx') > -1
+}
+
+const didOWin = function (tray) {
+  const lanes = getLanes(tray)
+  return lanes.indexOf('ooo') > -1
+}
+
 module.exports = {
-  getWinner
+  getWinner,
+  didXWin,
+  didOWin
 }
