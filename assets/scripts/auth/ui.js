@@ -56,8 +56,9 @@ const changePasswordSuccess = () => {
 }
 
 const changePasswordFailure = (error) => {
-  $('#alertMessage').text(' Cannot change password.')
-  $('.alert').show()
+  $('.alert').hide()
+  $('#alert-danger-message').text(' Cannot change password.')
+  $('.alert-danger').show()
 }
 
 module.exports = {

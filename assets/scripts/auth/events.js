@@ -37,6 +37,7 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 const onGoToChangePassword = function () {
+  $('#change-password').trigger('reset')
   $('.jumbotron').hide()
   $('.game-options').hide()
   $('.account-change').show()
@@ -52,7 +53,7 @@ const onChangePassword = function (event) {
   const oldPassword = $('#old-password').val()
   const newPassword = $('#new-password').val()
   event.preventDefault()
-
+  $('.alert').hide()
   if (oldPassword === newPassword) {
     $('#alert-danger-message').text(' Old password and new password cannot be the same.')
     $('.alert-danger').show()
