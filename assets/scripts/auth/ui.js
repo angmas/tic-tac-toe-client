@@ -19,7 +19,7 @@ const signInSuccess = (data) => {
   $('.authentication').hide()
   store.user = data.user
   $('.dropdown-toggle').html(store.user.email + ' <span class="caret"></span>')
-  $('.nav').show()
+  $('.navbar').show()
   $('.game-options').show()
   $('.not-signed-in').hide()
 }
@@ -38,7 +38,7 @@ const signOutSuccess = () => {
   $('.jumbotron').show()
   $('.tic-tac-toe-grid').hide()
   $('.game-stats').hide()
-  $('.nav').hide()
+  $('.navbar').hide()
   $('.not-signed-in').show()
 }
 
