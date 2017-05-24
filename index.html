@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TIC TAC TOE</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div class="container-fluid">
+        <!-- <div class="header clearfix"> -->
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Tic Tac Toe</a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse" data-toggle="collapse" data-target="#navbar" >
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="home-nav" role="presentation" ><a href="#">Home</a></li>
+                  <li class="new-game-nav" role="presentation"><a href="#">Play A Game</a></li>
+                  <li class="game-stats-nav" role="presentation"><a href="#">Game Statistics</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li class="change-password-nav"><a href="#">Change Password</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li class="sign-out-nav"><a href="#">Sign Out</a></li>
+                    </ul>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+      <!-- </div> -->
+
+    <div class="main-section">
+    <div class="jumbotron">
+        <h1>Welcome to Tic Tac Toe!</h1>
+        <p>Are you ready to have the most fun ever?</p>
+        <p class="not-signed-in">Sign in to play</p>
+    </div>
+    <section class="container global-alert">
+      <div id="global-alert-danger" class="alert alert-danger alert-dismissibl" role="alert">
+        <strong>Error!</strong><span id="alert-danger-message"></span>
+      </div>
+      <div id="global-alert-success" class="alert alert-success alert-dismissible" role="alert">
+        <strong>Success!</strong><span id="alert-success-message"></span>
+      </div>
+    </section>
+    <section class="container game-options">
+
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Let's Play</h2>
+          <p>Start an exciting game of Tic Tac Toe!</p>
+          <p><a class="btn btn-default new-game-button" href="#" role="button">New Game &raquo;</a></p>
+        </div>
+        <div class="col-md-6">
+          <h2>See Your Game Statistics</h2>
+          <p>Find out how many games you've played and won! </p>
+          <p><a class="btn btn-default game-stats-button" href="#" role="button">View details &raquo;</a></p>
+       </div>
+      </div>
+    </section>
+
+    <section class="container authentication">
+
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign up</legend>
+          <input type="email" name="credentials[email]" id="sign-up-email" placeholder="email" required>
+          <input type="password" name="credentials[password]" id="sign-up-password" placeholder="Password" required>
+          <input type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Password Confirmation" required>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+      </form>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign in</legend>
+          <input type="email" name="credentials[email]" id="sign-in-email" placeholder="email" required>
+          <input type="password" name="credentials[password]" id="sign-in-password" placeholder="Password" required>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+        </fieldset>
+      </form>
+    </section>
+
+      <section class="container account-change">
+        <form id="change-password">
+          <fieldset>
+            <legend>Change password</legend>
+            <input type="password" name="passwords[old]" id="old-password" placeholder="Old Password" required>
+            <input type="password" name="passwords[new]" id="new-password" placeholder="New Password" required>
+            <button type="submit" class="btn btn-primary">Change password</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+          </fieldset>
+        </form>
+      </section>
+
+      <section class="tic-tac-toe-grid">
+        <h1 class="banner"></h1>
+        <div class="row bottom">
+          <div id="box2" class="col-xs-4 box left"></div>
+          <div id="box5" class="col-xs-4 box"></div>
+          <div id="box8" class="col-xs-4 box right"></div>
+        </div>
+        <div class="row bottom">
+          <div id="box1" class="col-xs-4 box left"></div>
+          <div id="box4" class="col-xs-4 box"></div>
+          <div id="box7" class="col-xs-4 box right"></div>
+        </div>
+        <div class="row size">
+          <div id="box0" class="col-xs-4 box left"></div>
+          <div id="box3" class="col-xs-4 box "></div>
+          <div id="box6" class="col-xs-4 box right"></div>
+        </div>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary btn-lg new-game-button">Start a New Game</button>
+      </section>
+      <section class="game-stats">
+        <h1>Game Statistics</h1>
+        <p id="all-games"></p>
+        <p id="total-games-finished"></p>
+        <p id="total-games-abandoned"></p>
+        <p id="total-games-won"></p>
+        <p id="total-games-tied"></p>
+        <p id="total-games-lost"></p>
+      </section>
+    </div>
+  </div>
+<div>
+  <p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+let x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+</div>
+    </body>
+</html>
